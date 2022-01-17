@@ -1,5 +1,12 @@
-from flask_restful import Resource
+from tkinter.tix import Tree
+from flask_restful import Resource, reqparse
 from flask_restful_swagger_2 import swagger
+
+# 각 메쏘드별로 파라미터를 받기
+# post메쏘드에서 사용할 파라미터
+post_parser = reqparse.RequestParser()  # post로 들어오는 파라미터를 확인해볼 변수
+post_parser.add_argument('email', type = str, required=True, location='form')  # 파라미터 이름 / 데이터 타입 / 필수 여부 / 첨부된 곳 명시
+post_parser.add_argument('password', type=str, required=True, location='form')
 
 class User(Resource):
     
