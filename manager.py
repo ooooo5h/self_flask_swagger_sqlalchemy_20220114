@@ -3,9 +3,11 @@
 
 from server import create_app
 
-app = create_app()
+# 특별한 설정이 없다면, 실제 환경이 기본설정
+app = create_app('ProductionConfig')
 
 # 디버그 모드 => 파이썬 파일을 저장하면, 서버도 자동으로 재시작
+
 
 
 app.run(host='0.0.0.0')
